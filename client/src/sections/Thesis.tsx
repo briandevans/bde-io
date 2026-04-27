@@ -61,10 +61,11 @@ export default function Thesis() {
           {THESIS_CARDS.map((card) => (
             <div
               key={card.num}
-              className="thesis-card group p-10 md:p-12 transition-all duration-400"
+              className="thesis-card group p-10 md:p-12 transition-all duration-400 backdrop-blur-md"
               style={{
                 background: 'rgba(255,255,255,0.03)',
                 border: '1px solid rgba(255,255,255,0.06)',
+                boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget;

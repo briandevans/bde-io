@@ -74,7 +74,7 @@ export default function Hero() {
 
         <h1
           ref={headlineRef}
-          className="font-display font-light text-white leading-[0.88] tracking-[-0.03em] text-balance"
+          className="font-display font-light text-white leading-[1.1] md:leading-[0.88] tracking-[-0.03em] text-balance"
           style={{ fontSize: 'clamp(52px, 8vw, 140px)' }}
         >
           {words}
@@ -88,7 +88,7 @@ export default function Hero() {
           We provide operator-led advisory for founders and leadership teams building at the intersection of technology, blockchain, AI, and consumer brands.
         </p>
 
-        <div ref={buttonsRef} className="mt-10 flex gap-4">
+        <div ref={buttonsRef} className="mt-10 flex flex-col sm:flex-row gap-4">
           <button
             onClick={() => scrollTo('#thesis')}
             className="font-body text-[12px] uppercase tracking-[0.1em] font-medium bg-white text-deep-black px-7 py-3.5 transition-all duration-300 hover:bg-bronze hover:text-white"
@@ -108,7 +108,7 @@ export default function Hero() {
       {/* As Seen In */}
       <div
         ref={asSeenRef}
-        className="absolute bottom-0 left-0 right-0 w-full"
+        className="relative md:absolute bottom-0 left-0 right-0 w-full mt-16 md:mt-0"
         style={{ padding: '0 clamp(24px, 6vw, 120px) clamp(40px, 6vh, 80px)' }}
       >
         <div className="max-w-[1200px] mx-auto">

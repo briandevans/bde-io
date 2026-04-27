@@ -62,7 +62,7 @@ export default function Filter() {
       className="relative w-full flex items-center justify-center"
       style={{ minHeight: '80vh', backgroundColor: '#C4704A' }}
     >
-      <div className="max-w-[1000px] mx-auto px-8 py-[clamp(100px,14vh,160px)] text-center">
+      <div className="max-w-[1000px] mx-auto px-8 py-[clamp(100px,14vh,160px)] text-center backdrop-blur-lg bg-white/5 border border-white/10 rounded-3xl shadow-2xl m-4 md:m-8">
         <h2
           className="filter-headline font-display font-light text-white leading-[0.9] tracking-[-0.03em] text-balance"
           style={{ fontSize: 'clamp(48px, 7vw, 120px)' }}
