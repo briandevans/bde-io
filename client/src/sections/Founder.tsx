@@ -103,7 +103,7 @@ export default function Founder() {
               <img src="/images/forbes.svg" alt="Forbes" className="h-5 md:h-8 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
               <img src="/images/inc.svg" alt="Inc." className="h-5 md:h-8 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
               <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-5 md:h-8 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-              <img src="/images/rollingstone.svg" alt="Rolling Stone" className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/images/rollingstone.svg" alt="Rolling Stone" className="h-4 md:h-6 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
             </div>
           </div>
 
