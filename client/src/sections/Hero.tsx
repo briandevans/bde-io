@@ -118,8 +118,8 @@ export default function Hero() {
           <div className="flex gap-8 md:gap-20 flex-wrap items-center opacity-40">
             <img src="/images/forbes.svg" alt="Forbes" className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
             <img src="/images/inc.svg" alt="Inc." className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-            <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-            <img src="/images/rollingstone.png" alt="Rolling Stone" className="h-8 md:h-14 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+            <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-8 md:h-12 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+            <img src="/images/rollingstone.png" alt="Rolling Stone" className="h-10 md:h-16 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
           </div>
         </div>
       </div>

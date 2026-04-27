@@ -102,8 +102,8 @@ export default function Founder() {
             <div className="flex gap-8 md:gap-16 flex-wrap items-center opacity-40">
               <img src="/images/forbes.svg" alt="Forbes" className="h-5 md:h-8 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
               <img src="/images/inc.svg" alt="Inc." className="h-5 md:h-8 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-              <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-5 md:h-8 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-              <img src="/images/rollingstone.png" alt="Rolling Stone" className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/images/rollingstone.png" alt="Rolling Stone" className="h-8 md:h-12 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
             </div>
           </div>
 
