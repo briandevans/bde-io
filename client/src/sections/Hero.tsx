@@ -115,16 +115,11 @@ export default function Hero() {
           <p className="font-mono text-[10px] uppercase tracking-[0.15em] mb-4 md:mb-6" style={{ color: 'rgba(138,138,138,0.5)' }}>
             AS SEEN IN
           </p>
-          <div className="flex gap-6 md:gap-20 flex-wrap">
-            {['Forbes', 'Inc.', 'Entrepreneur', 'Rolling Stone'].map((pub) => (
-              <span
-                key={pub}
-                className="font-display font-normal italic"
-                style={{ fontSize: 'clamp(24px, 4vw, 56px)', color: 'rgba(255,255,255,0.12)' }}
-              >
-                {pub}
-              </span>
-            ))}
+          <div className="flex gap-8 md:gap-20 flex-wrap items-center opacity-40">
+            <img src="/images/forbes.svg" alt="Forbes" className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+            <img src="/images/inc.svg" alt="Inc." className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+            <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+            <img src="/images/rollingstone.svg" alt="Rolling Stone" className="h-8 md:h-12 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
           </div>
         </div>
       </div>

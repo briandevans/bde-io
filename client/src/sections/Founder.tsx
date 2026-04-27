@@ -99,12 +99,11 @@ export default function Founder() {
             <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-bronze mb-4">
               AS SEEN IN
             </p>
-            <div className="flex gap-8 flex-wrap">
-              {['Forbes', 'Inc.', 'Entrepreneur', 'Rolling Stone'].map((pub) => (
-                <span key={pub} className="font-body text-[12px] uppercase tracking-[0.08em] font-medium" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                  {pub}
-                </span>
-              ))}
+            <div className="flex gap-8 md:gap-16 flex-wrap items-center opacity-40">
+              <img src="/images/forbes.svg" alt="Forbes" className="h-5 md:h-8 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/images/inc.svg" alt="Inc." className="h-5 md:h-8 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-5 md:h-8 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/images/rollingstone.svg" alt="Rolling Stone" className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
             </div>
           </div>
 

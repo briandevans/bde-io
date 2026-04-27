@@ -50,10 +50,10 @@ export default function Connect() {
             If you are solving a generational challenge in blockchain, AI, infrastructure, or consumer platforms, we invite you to reach out.
           </p>
           <a
-            href="mailto:brian@bde.io"
+            href="mailto:hello@bde.io"
             className="inline-block mt-8 font-body font-light text-[18px] text-white hover:text-bronze transition-colors duration-300"
           >
-            brian@bde.io
+            hello@bde.io
           </a>
         </div>
 

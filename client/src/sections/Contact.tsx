@@ -61,7 +61,7 @@ export default function Contact() {
             +1 212 555 0147
           </p>
           <p className="mt-2 font-body font-light text-[16px] text-faded">
-            office@bde.io
+            hello@bde.io
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export default function Contact() {
             +44 20 7946 0958
           </p>
           <p className="mt-2 font-body font-light text-[16px] text-faded">
-            memos@bde.io
+            hello@bde.io
           </p>
         </div>
       </div>
