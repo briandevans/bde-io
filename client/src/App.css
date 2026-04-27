@@ -1,0 +1,13 @@
+#root {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cursor-expanded {
+  width: 32px !important;
+  height: 32px !important;
+  background: transparent !important;
+  border: 1px solid #B8956A !important;
+}
