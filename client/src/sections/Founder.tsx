@@ -47,7 +47,7 @@ export default function Founder() {
     <section
       id="founder"
       ref={sectionRef}
-      className="relative w-full bg-deep-black"
+      className="relative w-full bg-transparent"
       style={{ padding: 'clamp(120px, 16vh, 200px) clamp(24px, 6vw, 120px)' }}
     >
       <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-[5%]">

@@ -61,7 +61,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative w-full bg-deep-black flex flex-col justify-center"
+      className="relative w-full bg-transparent flex flex-col justify-center"
       style={{ minHeight: '100vh', padding: 'clamp(120px, 16vh, 200px) clamp(24px, 6vw, 120px)' }}
     >
       <div className="max-w-[1200px] mx-auto w-full">
@@ -88,16 +88,16 @@ export default function Hero() {
           We provide operator-led advisory for founders and leadership teams building at the intersection of technology, blockchain, AI, and consumer brands.
         </p>
 
-        <div ref={buttonsRef} className="mt-10 flex flex-col sm:flex-row gap-4">
+        <div ref={buttonsRef} className="mt-10 flex flex-col sm:flex-row gap-4 z-10 relative">
           <button
             onClick={() => scrollTo('#thesis')}
-            className="font-body text-[12px] uppercase tracking-[0.1em] font-medium bg-white text-deep-black px-7 py-3.5 transition-all duration-300 hover:bg-bronze hover:text-white"
+            className="font-body text-[12px] uppercase tracking-[0.1em] font-medium bg-white text-deep-black px-7 py-3.5 transition-all duration-300 hover:bg-bronze hover:text-white w-full sm:w-auto"
           >
             Explore Focus
           </button>
           <button
             onClick={() => scrollTo('#philosophy')}
-            className="font-body text-[12px] uppercase tracking-[0.1em] font-medium text-white px-7 py-3.5 border transition-all duration-300 hover:border-bronze hover:text-bronze"
+            className="font-body text-[12px] uppercase tracking-[0.1em] font-medium text-white px-7 py-3.5 border transition-all duration-300 hover:border-bronze hover:text-bronze w-full sm:w-auto"
             style={{ borderColor: 'rgba(255,255,255,0.3)' }}
           >
             Our Approach
@@ -108,19 +108,19 @@ export default function Hero() {
       {/* As Seen In */}
       <div
         ref={asSeenRef}
-        className="relative md:absolute bottom-0 left-0 right-0 w-full mt-16 md:mt-0"
-        style={{ padding: '0 clamp(24px, 6vw, 120px) clamp(40px, 6vh, 80px)' }}
+        className="relative md:absolute bottom-0 left-0 right-0 w-full mt-12 md:mt-0 z-10"
+        style={{ padding: '0 clamp(24px, 6vw, 120px) clamp(20px, 4vh, 80px)' }}
       >
         <div className="max-w-[1200px] mx-auto">
-          <p className="font-mono text-[10px] uppercase tracking-[0.15em] mb-6" style={{ color: 'rgba(138,138,138,0.5)' }}>
+          <p className="font-mono text-[10px] uppercase tracking-[0.15em] mb-4 md:mb-6" style={{ color: 'rgba(138,138,138,0.5)' }}>
             AS SEEN IN
           </p>
-          <div className="flex gap-12 md:gap-20 flex-wrap">
+          <div className="flex gap-6 md:gap-20 flex-wrap">
             {['Forbes', 'Inc.', 'Entrepreneur', 'Rolling Stone'].map((pub) => (
               <span
                 key={pub}
                 className="font-display font-normal italic"
-                style={{ fontSize: 'clamp(28px, 4vw, 56px)', color: 'rgba(255,255,255,0.12)' }}
+                style={{ fontSize: 'clamp(24px, 4vw, 56px)', color: 'rgba(255,255,255,0.12)' }}
               >
                 {pub}
               </span>

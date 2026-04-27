@@ -82,7 +82,7 @@ export default function Navigation() {
     >
       <div
         className="mx-auto flex items-center justify-between"
-        style={{ padding: 'clamp(20px, 3vw, 40px) clamp(24px, 6vw, 120px)' }}
+        style={{ padding: 'clamp(16px, 3vw, 40px) clamp(20px, 6vw, 120px)' }}
       >
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

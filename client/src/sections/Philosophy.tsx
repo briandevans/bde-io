@@ -77,7 +77,7 @@ export default function Philosophy() {
     <section
       id="philosophy"
       ref={sectionRef}
-      className="relative w-full bg-warm-parchment"
+      className="relative w-full bg-warm-parchment/90 backdrop-blur-md"
       style={{ padding: 'clamp(120px, 16vh, 200px) clamp(24px, 6vw, 120px)' }}
     >
       <div className="max-w-[900px] mx-auto">

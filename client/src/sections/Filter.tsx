@@ -59,8 +59,8 @@ export default function Filter() {
     <section
       id="filter"
       ref={sectionRef}
-      className="relative w-full flex items-center justify-center"
-      style={{ minHeight: '80vh', backgroundColor: '#C4704A' }}
+      className="relative w-full flex items-center justify-center bg-transparent"
+      style={{ minHeight: '80vh' }}
     >
       <div className="max-w-[1000px] mx-auto px-8 py-[clamp(100px,14vh,160px)] text-center backdrop-blur-lg bg-white/5 border border-white/10 rounded-3xl shadow-2xl m-4 md:m-8">
         <h2
