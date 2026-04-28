@@ -91,22 +91,17 @@ export default function Navigation() {
           BDE
         </button>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {NAV_LINKS.map((link) => (
             <button
               key={link.label}
               onClick={() => scrollTo(link.target)}
-              className={`font-body text-[11px] uppercase tracking-[0.12em] font-medium transition-colors duration-400 hover:text-bronze ${textColor}`}
+              className={`relative font-body text-[11px] uppercase tracking-[0.12em] font-medium transition-colors duration-400 hover:text-bronze ${textColor} group`}
             >
               {link.label}
+              <span className="absolute -bottom-1.5 left-0 w-0 h-[1px] bg-bronze transition-all duration-300 group-hover:w-full"></span>
             </button>
           ))}
-          <button
-            onClick={() => scrollTo('#connect')}
-            className="font-body text-[11px] uppercase tracking-[0.12em] font-medium bg-bronze text-white px-6 py-2.5 rounded-full transition-all duration-300 hover:bg-white hover:text-deep-black"
-          >
-            Establish Connection
-          </button>
         </div>
 
         <button

@@ -243,3 +243,10 @@
 - [ ] Review Antifund copy for inspiration.
 - [ ] Rewrite and update BDE.io copy in Home.tsx and Office.tsx.
 - [ ] Save checkpoint and push to GitHub.
+
+## Design Improvements (Feedback)
+- [ ] Add navigation hover states (subtle underline animations)
+- [ ] Refine CTA placement (avoid repeating "ESTABLISH CONNECTION" in both nav and footer)
+- [ ] Unify section spacing and visual rhythm (consistent padding, cohesive background treatments)
+- [ ] Introduce scroll momentum and parallax effects (progressive reveals, background parallax)
+- [ ] Enhance the footer design (make better use of space, add more content/links)

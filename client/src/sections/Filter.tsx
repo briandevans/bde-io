@@ -79,7 +79,7 @@ export default function Filter() {
           className="filter-btn mt-10 font-body text-[12px] uppercase tracking-[0.1em] font-medium bg-white px-8 py-3.5 transition-all duration-300 hover:bg-deep-black hover:text-white"
           style={{ color: '#C4704A' }}
         >
-          Establish Connection
+          Submit Proposal
         </button>
       </div>
     </section>
