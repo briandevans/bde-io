@@ -46,8 +46,9 @@ export function useCustomCursor() {
     cursorRef.current = cursor;
 
     const animate = () => {
-      pos.current.x += (pos.current.targetX - pos.current.x) * 0.12;
-      pos.current.y += (pos.current.targetY - pos.current.y) * 0.12;
+      // Use direct position for immediate response, no lag
+      pos.current.x = pos.current.targetX;
+      pos.current.y = pos.current.targetY;
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate(${pos.current.x}px, ${pos.current.y}px) translate(-50%, -50%)`;
       }
