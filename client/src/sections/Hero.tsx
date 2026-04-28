@@ -115,11 +115,11 @@ export default function Hero() {
           <p className="font-mono text-[10px] uppercase tracking-[0.15em] mb-4 md:mb-6" style={{ color: 'rgba(138,138,138,0.5)' }}>
             AS SEEN IN
           </p>
-          <div className="flex gap-8 md:gap-20 flex-wrap items-center opacity-40">
-            <img src="/images/forbes.svg" alt="Forbes" className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-            <img src="/images/inc.svg" alt="Inc." className="h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-            <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-12 md:h-16 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-            <img src="/images/rollingstone.png" alt="Rolling Stone" className="h-16 md:h-24 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+          <div className="flex gap-6 sm:gap-8 md:gap-20 flex-wrap items-center opacity-40">
+            <img src="/images/forbes.svg" alt="Forbes" className="h-4 sm:h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+            <img src="/images/inc.svg" alt="Inc." className="h-4 sm:h-6 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+            <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-8 sm:h-12 md:h-16 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+            <img src="/images/rollingstone.png" alt="Rolling Stone" className="h-10 sm:h-16 md:h-24 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
           </div>
         </div>
       </div>
