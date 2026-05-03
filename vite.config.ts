@@ -9,7 +9,7 @@ import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
 
 export default defineConfig({
-  base: "/bde-io/",
+  base: "/",
   plugins,
   resolve: {
     alias: {
