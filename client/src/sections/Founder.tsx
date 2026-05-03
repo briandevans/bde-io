@@ -81,6 +81,10 @@ export default function Founder() {
           <p className="reveal mt-3 font-body font-light text-[13px] text-faded">
             Founder & Managing Partner · BDE Ventures
           </p>
+          <div className="reveal mt-4 flex items-center gap-3">
+            <span className="px-3 py-1 border border-bronze/30 rounded-full font-mono text-[9px] uppercase tracking-wider text-bronze">Inc. 500</span>
+            <span className="px-3 py-1 border border-bronze/30 rounded-full font-mono text-[9px] uppercase tracking-wider text-bronze">40 Under 40</span>
+          </div>
 
           <div className="mt-8 space-y-6">
             <p className="reveal font-body font-light text-[16px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
