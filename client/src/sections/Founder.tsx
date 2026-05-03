@@ -84,27 +84,13 @@ export default function Founder() {
 
           <div className="mt-8 space-y-6">
             <p className="reveal font-body font-light text-[16px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-              Brian D. Evans identifies the inflection points of major technological shifts and helps founders build the narratives that drive early, massive adoption. His edge comes from being a dangerous generalist—possessing a rare, cross-disciplinary knowledge base that connects dots others miss. He views emerging markets through the distinct lens of an operator who has built, scaled, and exited companies, allowing him to identify and construct hard-to-replicate moats.
+              Brian D. Evans identifies the inflection points of major technological shifts and helps founders build the narratives that drive early, massive adoption. His core advantage is an obsessive drive to deconstruct how things work on a profound level. He masters the edge cases and applies a refined human taste that algorithms simply cannot replicate.
             </p>
             <p className="reveal font-body font-light text-[16px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-              Rather than relying on traditional, siloed playbooks, Brian leverages his broad expertise to fix broken growth engines and open strategic bottlenecks. He uses a deep, curated network and decades of hands-on scaling experience to help founders navigate the chaos of early-stage growth and establish lasting market leadership.
+              As a dangerous generalist, he connects dots others miss, viewing emerging markets through the distinct lens of an operator who has built, scaled, and exited companies to construct hard-to-replicate moats. Rather than relying on traditional, siloed playbooks, Brian leverages his broad expertise to fix broken growth engines and open strategic bottlenecks.
             </p>
           </div>
 
-          {/* As Seen In */}
-          <div className="reveal mt-12">
-            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-bronze mb-4">
-              AS SEEN IN
-            </p>
-            <div className="flex gap-6 sm:gap-8 md:gap-16 flex-wrap items-center opacity-40">
-              <img src="/images/forbes.svg" alt="Forbes" className="h-4 sm:h-5 md:h-8 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-              <img src="/images/inc.svg" alt="Inc." className="h-4 sm:h-5 md:h-8 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-              <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-8 sm:h-12 md:h-16 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-              <img src="/images/rollingstone.png" alt="Rolling Stone" className="h-10 sm:h-16 md:h-24 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-            </div>
-          </div>
-
-          {/* Social */}
           <div className="reveal mt-8 flex gap-6">
             <a
               href="https://x.com/briandevans"
@@ -122,6 +108,19 @@ export default function Founder() {
             >
               LinkedIn →
             </a>
+          </div>
+
+          {/* As Seen In */}
+          <div className="reveal mt-12">
+            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-bronze mb-4">
+              AS SEEN IN
+            </p>
+            <div className="flex gap-4 sm:gap-6 md:gap-12 flex-wrap items-center opacity-40">
+              <img src="/images/forbes.svg" alt="Forbes" className="h-3 sm:h-4 md:h-6 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/images/inc.svg" alt="Inc." className="h-3 sm:h-4 md:h-6 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-6 sm:h-8 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+              <img src="/images/rollingstone.png" alt="Rolling Stone" className="h-8 sm:h-10 md:h-14 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+            </div>
           </div>
         </div>
       </div>
