@@ -84,13 +84,10 @@ export default function Founder() {
 
           <div className="mt-8 space-y-6">
             <p className="reveal font-body font-light text-[16px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-              Brian D. Evans is a marketer who consistently positions himself at the inception of major technological shifts. He founded one of the earliest influencer marketing agencies and scaled it into a top 25 Inc. 500 company.
+              Brian D. Evans identifies the inflection points of major technological shifts and helps founders build the narratives that drive early, massive adoption. His edge comes from being a dangerous generalist—possessing a rare, cross-disciplinary knowledge base that connects dots others miss. He views emerging markets through the distinct lens of an operator who has built, scaled, and exited companies, allowing him to identify and construct hard-to-replicate moats.
             </p>
             <p className="reveal font-body font-light text-[16px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-              His edge comes from viewing emerging markets through a distinct operator's lens, informed by decades of hands-on experience in building and scaling companies. He identifies how to craft the narrative and drive real adoption early. This approach guided his backing of foundational blockchain projects and his subsequent pioneering investments in AI privacy technology.
-            </p>
-            <p className="reveal font-body font-light text-[16px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-              His marketing campaigns have reached more than 100 million people globally. He has helped raise more than $100 million in capital for emerging technology companies. He has appeared as a judge on a national television series evaluating high-growth startups.
+              Rather than relying on traditional, siloed playbooks, Brian leverages his broad expertise to fix broken growth engines and open strategic bottlenecks. He uses a deep, curated network and decades of hands-on scaling experience to help founders navigate the chaos of early-stage growth and establish lasting market leadership.
             </p>
           </div>
 

@@ -85,7 +85,7 @@ export default function Hero() {
           className="mt-12 font-body font-light text-[18px] leading-[1.6] max-w-[560px]"
           style={{ color: '#8A8A8A' }}
         >
-          We provide operator-led advisory for founders and leadership teams building at the intersection of technology, blockchain, AI, and consumer brands.
+          We provide cross-disciplinary, operator-led advisory for founders building at the intersection of AI, blockchain, and consumer brands. We help you identify hard-to-replicate moats and turn complex technological advantages into defensible market dominance.
         </p>
 
         <div ref={buttonsRef} className="mt-10 flex flex-col sm:flex-row gap-4 z-10 relative">
