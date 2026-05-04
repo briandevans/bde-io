@@ -11,7 +11,7 @@ const PILLARS = [
   },
   {
     title: 'ACTIVE STRATEGY',
-    body: 'We are most useful when conviction needs sharpening and leverage needs creating. Founders call when a launch has to matter, a round has to clear, a hire has to close, or a narrative has to cut through noise.',
+    body: 'We are most useful when conviction needs sharpening and leverage needs creating. We deploy our deep network and bespoke fundraising strategies to ensure founders have the capital and connections to dominate. Founders call when a launch has to matter, a round has to clear, a hire has to close, or a narrative has to cut through noise.',
   },
   {
     title: 'ENDURING VALUE',

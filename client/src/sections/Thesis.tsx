@@ -16,7 +16,7 @@ const THESIS_CARDS = [
     num: '02',
     title: 'AI',
     icon: Cpu,
-    body: 'We invest behind founders leveraging artificial intelligence to create new technological paradigms, with a specific focus on privacy-preserving models and foundational capabilities.',
+    body: 'We invest aggressively in the AI space, backing founders who leverage artificial intelligence to create new technological paradigms. Beyond capital, we deploy our extensive network and fundraising strategies to ensure these foundational models scale without friction.',
   },
   {
     num: '03',
