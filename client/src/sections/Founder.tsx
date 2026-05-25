@@ -59,10 +59,9 @@ export default function Founder() {
             style={{ aspectRatio: '3/4' }}
           >
             <img
-              src="/images/brian-d-evans-portrait.webp"
+              src="/images/brian-d-evans-portrait.png"
               alt="Brian D. Evans, Founder of BDE Ventures"
               className="w-full h-full object-cover"
-              style={{ filter: 'sepia(4%) saturate(95%)' }}
             />
           </div>
         </div>
