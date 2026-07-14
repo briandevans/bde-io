@@ -6,15 +6,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PILLARS = [
   {
-    title: 'OPERATOR DNA',
+    title: 'Operator DNA',
     body: 'We are built through work, not optics. We spend time where important companies are actually shaped: product reviews, launch plans, distribution strategy, and moments where the next decision matters more than the next deck.',
   },
   {
-    title: 'ACTIVE STRATEGY',
+    title: 'Active strategy',
     body: 'We are most useful when conviction needs sharpening and leverage needs creating. We deploy our deep network and bespoke fundraising strategies to ensure founders have the capital and connections to dominate. Founders call when a launch has to matter, a round has to clear, a hire has to close, or a narrative has to cut through noise.',
   },
   {
-    title: 'ENDURING VALUE',
+    title: 'Enduring value',
     body: 'We combine company building, institutional investing, and global-scale distribution into one cap-table partner, helping founders build what consensus misses.',
   },
 ];
@@ -26,83 +26,52 @@ export default function Philosophy() {
     const section = sectionRef.current;
     if (!section) return;
 
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const ctx = gsap.context(() => {
-      const eyebrow = section.querySelector('.ph-eyebrow');
-      const headline = section.querySelector('.ph-headline');
-      const body = section.querySelector('.ph-body');
-      const pillars = section.querySelectorAll('.ph-pillar');
-
-      if (eyebrow) {
-        gsap.fromTo(eyebrow, { opacity: 0, y: 15 }, {
-          opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
-          scrollTrigger: { trigger: section, start: 'top 80%', toggleActions: 'play none none none' },
-        });
+      const els = section.querySelectorAll('.ph-reveal');
+      if (reduced) {
+        gsap.set(els, { opacity: 1, y: 0 });
+        return;
       }
-
-      if (headline) {
-        const words = headline.querySelectorAll('.word');
-        gsap.fromTo(words, { opacity: 0, y: 30 }, {
-          opacity: 1, y: 0, duration: 0.9, stagger: 0.06,
-          ease: 'cubic-bezier(0.16, 1, 0.3, 1)',
-          scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none none' },
-        });
-      }
-
-      if (body) {
-        gsap.fromTo(body, { opacity: 0, y: 20 }, {
-          opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
-          scrollTrigger: { trigger: section, start: 'top 70%', toggleActions: 'play none none none' },
-          delay: 0.4,
-        });
-      }
-
-      if (pillars.length) {
-        gsap.fromTo(pillars, { opacity: 0, y: 20 }, {
-          opacity: 1, y: 0, duration: 0.7, stagger: 0.15, ease: 'power3.out',
-          scrollTrigger: { trigger: section, start: 'top 60%', toggleActions: 'play none none none' },
-          delay: 0.5,
-        });
-      }
+      gsap.fromTo(els, { opacity: 0, y: 18 }, {
+        opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: 'cubic-bezier(0.23, 1, 0.32, 1)',
+        scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none none' },
+      });
     }, section);
 
     return () => ctx.revert();
   }, []);
 
-  const headlineText = 'Capital with conviction.';
-  const words = headlineText.split(' ').map((word, i) => (
-    <span key={i} className="word inline-block mr-[0.25em]">{word}</span>
-  ));
-
   return (
     <section
       id="philosophy"
       ref={sectionRef}
-      className="relative w-full bg-warm-parchment/90 backdrop-blur-md"
-      style={{ padding: 'clamp(120px, 16vh, 200px) clamp(24px, 6vw, 120px)' }}
+      className="relative w-full bg-paper text-void"
+      style={{ padding: 'clamp(96px, 14vh, 160px) clamp(20px, 5vw, 80px)' }}
     >
-      <div className="max-w-[900px] mx-auto">
-        <p className="ph-eyebrow font-mono text-[10px] uppercase tracking-[0.15em] text-bronze mb-8">
-          PHILOSOPHY
-        </p>
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <p className="ph-reveal font-mono text-[11px] tracking-[0.08em] text-signal mb-5">
+            Philosophy
+          </p>
+          <h2
+            className="ph-reveal font-display font-medium tracking-[-0.025em] leading-[1.05] text-void mb-8"
+            style={{ fontSize: 'clamp(2.25rem, 4vw, 3.5rem)' }}
+          >
+            Capital with conviction.
+          </h2>
+          <p className="ph-reveal font-body text-[16px] leading-[1.7] text-muted-ink max-w-[42ch]">
+            BDE Ventures is focused exclusively on early-stage partnerships. We bring operating experience, technical fluency, and a firsthand understanding of how culture and narrative move markets. Viewing the world through a marketing lens is our bread and butter. Our partnership is unusual by design: we back founders with non-consensus insight and help them turn attention into durable advantage.
+          </p>
+        </div>
 
-        <h2
-          className="ph-headline font-display font-normal text-[#1A1A1A] leading-[0.95] tracking-[-0.02em] text-balance mb-12"
-          style={{ fontSize: 'clamp(36px, 5vw, 72px)' }}
-        >
-          {words}
-        </h2>
-
-        <p className="ph-body font-body font-light text-[16px] leading-[1.7] mb-16" style={{ color: '#3A3A3A' }}>
-          BDE Ventures is focused exclusively on early-stage partnerships. We bring operating experience, technical fluency, and a firsthand understanding of how culture and narrative move markets. Viewing the world through a marketing lens is our bread and butter. Our partnership is unusual by design: we back founders with non-consensus insight and help them turn attention into durable advantage.
-        </p>
-
-        <div className="space-y-0">
+        <div className="lg:col-span-6 lg:col-start-7 space-y-0">
           {PILLARS.map((pillar) => (
-            <div key={pillar.title} className="ph-pillar py-8" style={{ borderTop: '1px solid rgba(26,26,26,0.1)' }}>
-              <p className="font-body text-[12px] uppercase tracking-[0.1em] font-medium text-[#1A1A1A] mb-3">
+            <div key={pillar.title} className="ph-reveal py-7 border-t border-void/10 first:border-t-0 first:pt-0">
+              <p className="font-display text-[18px] font-medium tracking-[-0.02em] text-void mb-3">
                 {pillar.title}
               </p>
-              <p className="font-body font-light text-[15px] leading-[1.7]" style={{ color: '#4A4A4A' }}>
+              <p className="font-body text-[15px] leading-[1.7] text-muted-ink max-w-[50ch]">
                 {pillar.body}
               </p>
             </div>

@@ -13,31 +13,25 @@ export default function Founder() {
     const section = sectionRef.current;
     if (!section) return;
 
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const ctx = gsap.context(() => {
-      gsap.fromTo(portraitRef.current, { opacity: 0, x: -30 }, {
-        opacity: 1, x: 0, duration: 1.0, ease: 'power3.out',
+      if (reduced) {
+        gsap.set([portraitRef.current, textRef.current], { opacity: 1, x: 0, y: 0 });
+        return;
+      }
+
+      gsap.fromTo(portraitRef.current, { opacity: 0, y: 20 }, {
+        opacity: 1, y: 0, duration: 0.7, ease: 'cubic-bezier(0.23, 1, 0.32, 1)',
         scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none none' },
       });
 
       const textEls = textRef.current?.querySelectorAll('.reveal');
       if (textEls) {
-        gsap.fromTo(textEls, { opacity: 0, y: 25 }, {
-          opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+        gsap.fromTo(textEls, { opacity: 0, y: 16 }, {
+          opacity: 1, y: 0, duration: 0.55, stagger: 0.07, ease: 'cubic-bezier(0.23, 1, 0.32, 1)',
           scrollTrigger: { trigger: section, start: 'top 70%', toggleActions: 'play none none none' },
         });
       }
-
-      ScrollTrigger.create({
-        trigger: section,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-        onUpdate: (self) => {
-          if (portraitRef.current) {
-            gsap.set(portraitRef.current, { y: self.progress * -40 });
-          }
-        },
-      });
     }, section);
 
     return () => ctx.revert();
@@ -47,16 +41,14 @@ export default function Founder() {
     <section
       id="founder"
       ref={sectionRef}
-      className="relative w-full bg-transparent"
-      style={{ padding: 'clamp(120px, 16vh, 200px) clamp(24px, 6vw, 120px)' }}
+      className="relative w-full bg-void"
+      style={{ padding: 'clamp(96px, 14vh, 160px) clamp(20px, 5vw, 80px)' }}
     >
-      <div className="max-w-[1200px] mx-auto flex flex-col lg:flex-row gap-12 lg:gap-[5%]">
-        {/* Portrait */}
-        <div className="w-full lg:w-[42%]">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+        <div className="lg:col-span-5">
           <div
             ref={portraitRef}
-            className="lg:sticky lg:top-[20vh] overflow-hidden"
-            style={{ aspectRatio: '3/4' }}
+            className="lg:sticky lg:top-[18vh] overflow-hidden aspect-[3/4] bg-surface"
           >
             <img
               src="/images/brian-d-evans-portrait.png"
@@ -66,30 +58,33 @@ export default function Founder() {
           </div>
         </div>
 
-        {/* Bio */}
-        <div ref={textRef} className="w-full lg:w-[53%] flex flex-col justify-center">
-          <p className="reveal font-mono text-[10px] uppercase tracking-[0.15em] text-bronze mb-8">
-            FOUNDER
+        <div ref={textRef} className="lg:col-span-6 lg:col-start-7 flex flex-col justify-center">
+          <p className="reveal font-mono text-[11px] tracking-[0.08em] text-signal mb-5">
+            Founder
           </p>
           <h2
-            className="reveal font-display font-normal text-white leading-[1.0] tracking-[-0.02em]"
-            style={{ fontSize: 'clamp(36px, 4vw, 64px)' }}
+            className="reveal font-display font-medium text-ink tracking-[-0.025em] leading-[1.05]"
+            style={{ fontSize: 'clamp(2rem, 3.5vw, 3.25rem)' }}
           >
             Brian D. Evans
           </h2>
-          <p className="reveal mt-3 font-body font-light text-[13px] text-faded">
+          <p className="reveal mt-3 font-body text-[14px] text-ink-muted">
             Founder & Managing Partner · BDE Ventures
           </p>
-          <div className="reveal mt-4 flex items-center gap-3">
-            <span className="px-3 py-1 border border-bronze/30 rounded-full font-mono text-[9px] uppercase tracking-wider text-bronze">Inc. 500</span>
-            <span className="px-3 py-1 border border-bronze/30 rounded-full font-mono text-[9px] uppercase tracking-wider text-bronze">40 Under 40</span>
+          <div className="reveal mt-5 flex flex-wrap gap-3">
+            <span className="px-3 py-1.5 border border-rule font-mono text-[10px] uppercase tracking-[0.08em] text-ink-muted">
+              Inc. 500
+            </span>
+            <span className="px-3 py-1.5 border border-rule font-mono text-[10px] uppercase tracking-[0.08em] text-ink-muted">
+              40 Under 40
+            </span>
           </div>
 
-          <div className="mt-8 space-y-6">
-            <p className="reveal font-body font-light text-[16px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
+          <div className="mt-8 space-y-5">
+            <p className="reveal font-body text-[16px] leading-[1.75] text-ink-muted max-w-[54ch]">
               Brian D. Evans identifies the inflection points of major technological shifts and helps founders build the narratives that drive early, massive adoption. His core advantage is an obsessive drive to deconstruct how things work on a profound level. He masters the edge cases and applies a refined human taste that algorithms simply cannot replicate.
             </p>
-            <p className="reveal font-body font-light text-[16px] leading-[1.8]" style={{ color: 'rgba(255,255,255,0.7)' }}>
+            <p className="reveal font-body text-[16px] leading-[1.75] text-ink-muted max-w-[54ch]">
               As an unconventional generalist, he connects dots others miss, viewing emerging markets through the distinct lens of an operator who has built, scaled, and exited companies to construct hard-to-replicate moats. Rather than relying on traditional, siloed playbooks, Brian leverages his broad expertise to fix broken growth engines and open strategic bottlenecks.
             </p>
           </div>
@@ -99,7 +94,7 @@ export default function Founder() {
               href="https://x.com/briandevans"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-[11px] uppercase tracking-[0.12em] font-medium text-bronze hover:text-white transition-colors duration-300"
+              className="font-body text-[12px] tracking-[0.06em] uppercase font-medium text-signal hover:text-ink transition-colors duration-200"
             >
               X / Twitter →
             </a>
@@ -107,22 +102,21 @@ export default function Founder() {
               href="https://www.linkedin.com/in/briandevansla/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-body text-[11px] uppercase tracking-[0.12em] font-medium text-bronze hover:text-white transition-colors duration-300"
+              className="font-body text-[12px] tracking-[0.06em] uppercase font-medium text-signal hover:text-ink transition-colors duration-200"
             >
               LinkedIn →
             </a>
           </div>
 
-          {/* As Seen In */}
-          <div className="reveal mt-12">
-            <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-bronze mb-4">
-              AS SEEN IN
+          <div className="reveal mt-12 pt-8 border-t border-rule">
+            <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-faint mb-5">
+              As seen in
             </p>
-            <div className="flex gap-4 sm:gap-6 md:gap-12 flex-wrap items-center opacity-40">
-              <img src="/images/forbes.svg" alt="Forbes" className="h-3 sm:h-4 md:h-6 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-              <img src="/images/inc.svg" alt="Inc." className="h-3 sm:h-4 md:h-6 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-              <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-6 sm:h-8 md:h-10 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
-              <img src="/images/rollingstone.png" alt="Rolling Stone" className="h-8 sm:h-10 md:h-14 w-auto" style={{ filter: 'brightness(0) invert(1)' }} />
+            <div className="flex gap-6 sm:gap-10 flex-wrap items-center opacity-45">
+              <img src="/images/forbes.svg" alt="Forbes" className="h-4 sm:h-5 w-auto brightness-0 invert" />
+              <img src="/images/inc.svg" alt="Inc." className="h-4 sm:h-5 w-auto brightness-0 invert" />
+              <img src="/images/entrepreneur.svg" alt="Entrepreneur" className="h-7 sm:h-9 w-auto brightness-0 invert" />
+              <img src="/images/rollingstone.png" alt="Rolling Stone" className="h-8 sm:h-10 w-auto brightness-0 invert" />
             </div>
           </div>
         </div>

@@ -16,6 +16,15 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/bricolage-grotesque':
+        specifier: ^5.2.10
+        version: 5.2.10
+      '@fontsource/jetbrains-mono':
+        specifier: ^5.2.8
+        version: 5.2.8
+      '@fontsource/public-sans':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@gsap/react':
         specifier: ^2.1.2
         version: 2.1.2(gsap@3.15.0)(react@19.2.1)
@@ -693,6 +702,15 @@ packages:
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+
+  '@fontsource-variable/bricolage-grotesque@5.2.10':
+    resolution: {integrity: sha512-5EDsCqgGpKVcJWE4sg9ydli+t5WM97mISYw5lla/Ev4z71FwXh1oN0YUU8xjkRW9+wBCGD9R+ntAvI8G4bUFJg==}
+
+  '@fontsource/jetbrains-mono@5.2.8':
+    resolution: {integrity: sha512-6w8/SG4kqvIMu7xd7wt6x3idn1Qux3p9N62s6G3rfldOUYHpWcc2FKrqf+Vo44jRvqWj2oAtTHrZXEP23oSKwQ==}
+
+  '@fontsource/public-sans@5.2.7':
+    resolution: {integrity: sha512-pVttDr3HvhVIt2x6sZJfZKksNEpq23C1JCHTQwT9KWJdmFRdNeRM8gQftq8uP72sPW+p3Ku9x8HPk2E392DFvg==}
 
   '@gsap/react@2.1.2':
     resolution: {integrity: sha512-JqliybO1837UcgH2hVOM4VO+38APk3ECNrsuSM4MuXp+rbf+/2IG2K1YJiqfTcXQHH7XlA0m3ykniFYstfq0Iw==}
@@ -4157,6 +4175,12 @@ snapshots:
       react-dom: 19.2.1(react@19.2.1)
 
   '@floating-ui/utils@0.2.10': {}
+
+  '@fontsource-variable/bricolage-grotesque@5.2.10': {}
+
+  '@fontsource/jetbrains-mono@5.2.8': {}
+
+  '@fontsource/public-sans@5.2.7': {}
 
   '@gsap/react@2.1.2(gsap@3.15.0)(react@19.2.1)':
     dependencies:

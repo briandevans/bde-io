@@ -5,55 +5,42 @@ import * as THREE from 'three';
 
 function ParticleField() {
   const ref = useRef<THREE.Points>(null);
-  
-  // Generate random points in a sphere
+
   const [positions, colors] = useMemo(() => {
-    const count = 3000;
+    const count = 2200;
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
-    
-    const color1 = new THREE.Color('#B8956A'); // Bronze
-    const color2 = new THREE.Color('#C4704A'); // Terracotta
-    const color3 = new THREE.Color('#ffffff'); // White
-    
+
+    const color1 = new THREE.Color('#4F6BFF');
+    const color2 = new THREE.Color('#8A94A8');
+    const color3 = new THREE.Color('#ffffff');
+
     for (let i = 0; i < count; i++) {
-      // Spherical distribution
       const r = 15 * Math.cbrt(Math.random());
       const theta = Math.random() * 2 * Math.PI;
       const phi = Math.acos(2 * Math.random() - 1);
-      
-      const x = r * Math.sin(phi) * Math.cos(theta);
-      const y = r * Math.sin(phi) * Math.sin(theta);
-      const z = r * Math.cos(phi);
-      
-      positions[i * 3] = x;
-      positions[i * 3 + 1] = y;
-      positions[i * 3 + 2] = z;
-      
-      // Mix colors based on position
+
+      positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = r * Math.cos(phi);
+
       const mixedColor = color1.clone();
       const rand = Math.random();
-      if (rand > 0.6) mixedColor.lerp(color2, Math.random());
-      else if (rand > 0.3) mixedColor.lerp(color3, Math.random());
-      
+      if (rand > 0.65) mixedColor.lerp(color2, Math.random());
+      else if (rand > 0.35) mixedColor.lerp(color3, Math.random() * 0.5);
+
       colors[i * 3] = mixedColor.r;
       colors[i * 3 + 1] = mixedColor.g;
       colors[i * 3 + 2] = mixedColor.b;
     }
-    
+
     return [positions, colors];
   }, []);
 
   useFrame((state) => {
     if (!ref.current) return;
-    
-    // Slow rotation
-    ref.current.rotation.x = state.clock.elapsedTime * 0.05;
-    ref.current.rotation.y = state.clock.elapsedTime * 0.03;
-    
-    // Subtle breathing effect
-    const scale = 1 + Math.sin(state.clock.elapsedTime * 0.5) * 0.05;
-    ref.current.scale.set(scale, scale, scale);
+    ref.current.rotation.x = state.clock.elapsedTime * 0.04;
+    ref.current.rotation.y = state.clock.elapsedTime * 0.025;
   });
 
   return (
@@ -61,11 +48,11 @@ function ParticleField() {
       <PointMaterial
         transparent
         vertexColors
-        size={0.05}
+        size={0.045}
         sizeAttenuation={true}
         depthWrite={false}
         blending={THREE.AdditiveBlending}
-        opacity={0.6}
+        opacity={0.45}
       />
     </Points>
   );
@@ -73,7 +60,7 @@ function ParticleField() {
 
 export default function InteractiveBackground() {
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none opacity-40 mix-blend-screen">
+    <div className="fixed inset-0 z-0 pointer-events-none opacity-25 mix-blend-screen" aria-hidden="true">
       <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
         <ParticleField />
       </Canvas>

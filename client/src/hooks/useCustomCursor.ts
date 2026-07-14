@@ -33,13 +33,13 @@ export function useCustomCursor() {
       left: 0;
       width: 6px;
       height: 6px;
-      background: #B8956A;
+      background: oklch(0.58 0.19 260);
       border-radius: 50%;
       pointer-events: none;
       z-index: 9999;
       mix-blend-mode: difference;
       transform: translate(-50%, -50%) scale(1);
-      transition: width 0.3s ease, height 0.3s ease, background 0.3s ease, border 0.3s ease;
+      transition: width 200ms cubic-bezier(0.23, 1, 0.32, 1), height 200ms cubic-bezier(0.23, 1, 0.32, 1), background 200ms cubic-bezier(0.23, 1, 0.32, 1), border 200ms cubic-bezier(0.23, 1, 0.32, 1);
       will-change: transform;
     `;
     document.body.appendChild(cursor);

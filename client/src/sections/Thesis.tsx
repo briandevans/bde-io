@@ -1,33 +1,28 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Link, Cpu, Network, ShoppingBag } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const THESIS_CARDS = [
+const THESIS_ROWS = [
   {
     num: '01',
     title: 'Blockchain',
-    icon: Link,
     body: 'We back founders building the decentralized infrastructure and token-based economies that will define the next iteration of the internet. We look for technical edge and the ability to drive real adoption.',
   },
   {
     num: '02',
     title: 'AI',
-    icon: Cpu,
     body: 'We invest aggressively in the AI space, backing founders who leverage artificial intelligence to create new technological paradigms. Beyond capital, we deploy our extensive network and fundraising strategies to ensure these foundational models scale without friction.',
   },
   {
     num: '03',
     title: 'Infrastructure',
-    icon: Network,
     body: 'We partner with teams building the core technological layers and engineering innovations required to solve generational challenges and support global-scale applications.',
   },
   {
     num: '04',
     title: 'Consumer Platforms & Brands',
-    icon: ShoppingBag,
     body: 'We help founders turn attention into durable advantage. We back consumer platforms, brands, and the advertising technologies that scale them, bringing our global distribution expertise to the cap table.',
   },
 ];
@@ -39,13 +34,18 @@ export default function Thesis() {
     const section = sectionRef.current;
     if (!section) return;
 
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const ctx = gsap.context(() => {
-      const cards = section.querySelectorAll('.thesis-card');
-      gsap.fromTo(cards, { opacity: 0, y: 30 }, {
-        opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out',
+      const rows = section.querySelectorAll('.thesis-row');
+      if (reduced) {
+        gsap.set(rows, { opacity: 1, y: 0 });
+        return;
+      }
+      gsap.fromTo(rows, { opacity: 0, y: 20 }, {
+        opacity: 1, y: 0, duration: 0.55, stagger: 0.08, ease: 'cubic-bezier(0.23, 1, 0.32, 1)',
         scrollTrigger: {
           trigger: section,
-          start: 'top 80%',
+          start: 'top 78%',
           toggleActions: 'play none none none',
         },
       });
@@ -58,61 +58,45 @@ export default function Thesis() {
     <section
       id="thesis"
       ref={sectionRef}
-      className="relative w-full bg-transparent"
-      style={{ padding: 'clamp(120px, 16vh, 200px) clamp(24px, 6vw, 120px)' }}
+      className="relative w-full bg-void"
+      style={{ padding: 'clamp(96px, 14vh, 160px) clamp(20px, 5vw, 80px)' }}
     >
-      <div className="max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {THESIS_CARDS.map((card) => (
-            <div
-              key={card.num}
-              className="thesis-card group relative p-10 md:p-12 transition-all duration-500 backdrop-blur-xl rounded-3xl overflow-hidden"
-              style={{
-                background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
-                transform: 'translateY(0)',
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget;
-                el.style.borderColor = 'rgba(184,149,106,0.5)';
-                el.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)';
-                el.style.transform = 'translateY(-8px)';
-                el.style.boxShadow = '0 20px 40px 0 rgba(0, 0, 0, 0.4), 0 0 20px rgba(184,149,106,0.2)';
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget;
-                el.style.borderColor = 'rgba(255,255,255,0.08)';
-                el.style.background = 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)';
-                el.style.transform = 'translateY(0)';
-                el.style.boxShadow = '0 8px 32px 0 rgba(0, 0, 0, 0.3)';
-              }}
+      <div className="max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 mb-14 lg:mb-20">
+          <div className="lg:col-span-4">
+            <p className="font-mono text-[11px] tracking-[0.08em] text-signal mb-4">
+              Active thesis
+            </p>
+            <h2
+              className="font-display font-medium text-ink tracking-[-0.025em] leading-[1.05]"
+              style={{ fontSize: 'clamp(2rem, 3.5vw, 3rem)' }}
+            >
+              Where we put weight.
+            </h2>
+          </div>
+          <p className="lg:col-span-6 lg:col-start-7 font-body text-[16px] leading-[1.7] text-ink-muted max-w-[52ch] self-end">
+            Four arenas. One filter: operators building hard-to-replicate advantage at the edge of technology and culture.
+          </p>
+        </div>
+
+        <div className="border-t border-rule">
+          {THESIS_ROWS.map((row) => (
+            <article
+              key={row.num}
+              className="thesis-row group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-8 md:py-10 border-b border-rule"
               data-cursor="expand"
             >
-              {/* Subtle glow effect on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                   style={{ background: 'radial-gradient(circle at 50% 0%, rgba(184,149,106,0.15) 0%, transparent 70%)' }} />
-              
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-bronze/10 group-hover:border-bronze/30 transition-colors duration-500">
-                    <card.icon className="w-6 h-6 text-bronze opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-bronze/60 group-hover:text-bronze transition-colors duration-500">
-                    {card.num}
-                  </p>
-                </div>
-                <h3
-                  className="font-display font-normal text-white leading-[1.05] mb-5 group-hover:text-bronze transition-colors duration-500"
-                  style={{ fontSize: 'clamp(24px, 2.5vw, 40px)' }}
-                >
-                  {card.title}
-                </h3>
-                <p className="font-body font-light text-[15px] leading-[1.7] text-white/60 group-hover:text-white/80 transition-colors duration-500">
-                  {card.body}
-                </p>
-              </div>
-            </div>
+              <p className="md:col-span-1 font-mono text-[12px] text-signal pt-1">{row.num}</p>
+              <h3
+                className="md:col-span-4 font-display font-medium text-ink tracking-[-0.02em] leading-[1.1] transition-colors duration-200 group-hover:text-signal"
+                style={{ fontSize: 'clamp(1.35rem, 2vw, 1.85rem)' }}
+              >
+                {row.title}
+              </h3>
+              <p className="md:col-span-7 font-body text-[15px] leading-[1.7] text-ink-muted max-w-[60ch]">
+                {row.body}
+              </p>
+            </article>
           ))}
         </div>
       </div>
