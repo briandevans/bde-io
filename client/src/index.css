@@ -490,16 +490,38 @@ p {
   justify-content: space-between;
   gap: 1rem;
   margin-top: 2.375rem;
-  padding-top: 0.875rem;
+  padding-top: 1.375rem;
   border-top: 1px solid var(--rule);
 }
 
-.index-card__index {
-  font-size: 0.83rem; /* 13.3px */
-  font-weight: 600;
-  letter-spacing: 0.115em;
-  text-transform: uppercase;
+.index-card__social {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.index-card__social a {
+  display: grid;
+  place-items: center;
+  width: 1.875rem; /* 30px */
+  height: 1.875rem;
   color: var(--ink);
+  border: 1px solid rgba(120, 106, 92, 0.42);
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.index-card__social a:hover {
+  color: var(--paper);
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.index-card__social svg {
+  width: 0.875rem;
+  height: 0.875rem;
 }
 
 .seal {
@@ -1046,11 +1068,15 @@ p {
   }
 
   .index-card {
-    position: static;
+    /* relative, not static: the seal is positioned against the card, but the
+       desktop offsets must be cleared so it stays in flow. */
+    position: relative;
+    top: auto;
+    right: auto;
     width: 100%;
     max-width: 26rem;
     margin-top: 2rem;
-    padding: 1rem;
+    padding: 1rem 1rem 1.25rem;
   }
 
   .index-card__head {
@@ -1073,19 +1099,27 @@ p {
   }
 
   .index-card__foot {
+    min-height: 2.25rem;
     margin-top: 1.25rem;
+    padding-top: 1rem;
   }
 
-  .index-card__index {
-    font-size: 0.6875rem;
+  .index-card__social a {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .index-card__social svg {
+    width: 0.8125rem;
+    height: 0.8125rem;
   }
 
   .seal {
-    width: 2.75rem;
-    height: 2.75rem;
-    right: 1rem;
-    bottom: 0.875rem;
-    font-size: 0.75rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    right: 0.875rem;
+    bottom: 0.75rem;
+    font-size: 0.6875rem;
   }
 
   .press {

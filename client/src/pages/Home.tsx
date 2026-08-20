@@ -114,7 +114,24 @@ export default function Home() {
               </div>
             </div>
             <div className="index-card__foot">
-              <span className="index-card__index">Index</span>
+              <nav className="index-card__social" aria-label="Brian D. Evans on social">
+                <a
+                  href={SITE.social[0].href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Brian D. Evans on X"
+                >
+                  <XIcon />
+                </a>
+                <a
+                  href={SITE.social[1].href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Brian D. Evans on LinkedIn"
+                >
+                  <LinkedInIcon />
+                </a>
+              </nav>
             </div>
             <span className="seal" aria-hidden="true">
               BDE
