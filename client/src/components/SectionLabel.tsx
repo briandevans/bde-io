@@ -1,11 +1,6 @@
-interface SectionLabelProps {
-  children: React.ReactNode;
-}
+/** Soft Raster Editorial: small scarlet labels establish the reading rhythm across the long page. */
+import type { ReactNode } from "react";
 
-export function SectionLabel({ children }: SectionLabelProps) {
-  return (
-    <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-6 block">
-      {children}
-    </span>
-  );
+export function SectionLabel({ children }: { children: ReactNode }) {
+  return <p className="section-label">{children}</p>;
 }

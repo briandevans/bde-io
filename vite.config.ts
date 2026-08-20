@@ -6,11 +6,14 @@ import path from "path";
 import { defineConfig } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
-
-export default defineConfig({
+// The JSX-location and Manus runtime plugins are authoring aids: they inject a
+// sizeable inline script into index.html, so keep them out of the shipped build.
+export default defineConfig(({ command }) => ({
   base: "/",
-  plugins,
+  plugins:
+    command === "serve"
+      ? [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()]
+      : [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -42,4 +45,4 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
-});
+}));
