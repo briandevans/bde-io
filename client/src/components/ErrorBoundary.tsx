@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { AlertTriangle, RotateCcw } from "lucide-react";
-import { Component, type ReactNode } from "react";
+import { Component, ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
@@ -21,11 +21,6 @@ class ErrorBoundary extends Component<Props, State> {
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    // Log to external error reporting service in production
-    console.error("[ErrorBoundary]", error, errorInfo);
-  }
-
   render() {
     if (this.state.hasError) {
       return (
@@ -36,19 +31,13 @@ class ErrorBoundary extends Component<Props, State> {
               className="text-destructive mb-6 flex-shrink-0"
             />
 
-            <h1 className="text-xl mb-4 font-serif">An unexpected error occurred.</h1>
+            <h2 className="text-xl mb-4">An unexpected error occurred.</h2>
 
-            {import.meta.env.DEV && this.state.error?.stack && (
-              <div className="p-4 w-full rounded bg-muted overflow-auto mb-6">
-                <pre className="text-sm text-muted-foreground whitespace-break-spaces">
-                  {this.state.error.stack}
-                </pre>
-              </div>
-            )}
-
-            <p className="text-muted-foreground mb-6 text-center">
-              Something went wrong. Please try reloading the page.
-            </p>
+            <div className="p-4 w-full rounded bg-muted overflow-auto mb-6">
+              <pre className="text-sm text-muted-foreground whitespace-break-spaces">
+                {this.state.error?.stack}
+              </pre>
+            </div>
 
             <button
               onClick={() => window.location.reload()}

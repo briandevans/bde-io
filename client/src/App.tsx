@@ -1,35 +1,42 @@
-import Masthead from "./sections/Masthead";
-import Hero from "./sections/Hero";
-import Press from "./sections/Press";
-import Thesis from "./sections/Thesis";
-import Method from "./sections/Method";
-import Dispatch from "./sections/Dispatch";
-import Dossier from "./sections/Dossier";
-import Connect from "./sections/Connect";
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import NotFound from "@/pages/NotFound";
+import { Route, Switch } from "wouter";
+import ErrorBoundary from "./components/ErrorBoundary";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import Home from "./pages/Home";
 
-export default function App() {
+
+function Router() {
   return (
-    <div className="frame" id="top">
-      <span className="crop crop--tl" aria-hidden="true" />
-      <span className="crop crop--tr" aria-hidden="true" />
-      <span className="crop crop--bl" aria-hidden="true" />
-      <span className="crop crop--br" aria-hidden="true" />
-
-      <div className="sheet">
-        <Masthead />
-        <main>
-          <Hero />
-          <Press />
-          <Thesis />
-          <Method />
-          <Dispatch />
-          <Dossier />
-          <Connect />
-        </main>
-        <footer className="band colophon">Clarity before consensus.</footer>
-      </div>
-
-      <div className="grain" aria-hidden="true" />
-    </div>
+    <Switch>
+      <Route path={"/"} component={Home} />
+      <Route path={"/404"} component={NotFound} />
+      {/* Final fallback route */}
+      <Route component={NotFound} />
+    </Switch>
   );
 }
+
+// NOTE: About Theme
+// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
+//   to keep consistent foreground/background color across components
+// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
+
+function App() {
+  return (
+    <ErrorBoundary>
+      <ThemeProvider
+        defaultTheme="light"
+        // switchable
+      >
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
+  );
+}
+
+export default App;

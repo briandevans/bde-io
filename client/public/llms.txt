@@ -1,0 +1,21 @@
+# BDE Ventures
+
+> Operator-led advisory for founders building the next iteration of the internet.
+
+BDE Ventures works with founders at the intersection of blockchain, AI, infrastructure, and consumer platforms and brands. The site’s founder is Brian D. Evans, Founder and Managing Partner.
+
+## Primary page
+
+- https://bde.io/ : firm positioning, focus areas, operating model, founder biography, contact, and links to BDE Dispatch.
+
+## BDE Dispatch
+
+- https://briandevans.substack.com/p/chips-across-the-felt : Chips Across the Felt.
+- https://briandevans.substack.com/p/ai-agents-need-crypto-rails : AI Agents Need Crypto Rails.
+- https://briandevans.substack.com/p/the-generalist-era-is-here : The Generalist Era Is Here.
+
+## Contact and social
+
+- mailto:hello@bde.io
+- https://x.com/briandevans
+- https://www.linkedin.com/in/briandevansla/

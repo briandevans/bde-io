@@ -2,18 +2,17 @@
 
 Self-hosted so type never depends on a third-party CDN.
 
-| File                          | Family                  | Axes / style            |
-| ----------------------------- | ----------------------- | ----------------------- |
-| `playfair-latin.woff2`        | Playfair Display        | wght 400–700, latin     |
-| `playfair-latin-ext.woff2`    | Playfair Display        | wght 400–700, latin-ext |
-| `playfair-italic-latin.woff2` | Playfair Display italic | wght 400–700, latin     |
-| `inter-latin.woff2`           | Inter                   | wght 300–700, latin     |
-| `inter-latin-ext.woff2`       | Inter                   | wght 300–700, latin-ext |
+| File                         | Family     | Axes / subset           |
+| ---------------------------- | ---------- | ----------------------- |
+| `newsreader-latin.woff2`     | Newsreader | wght 200–800, latin     |
+| `newsreader-latin-ext.woff2` | Newsreader | wght 200–800, latin-ext |
+| `manrope-latin.woff2`        | Manrope    | wght 200–800, latin     |
+| `manrope-latin-ext.woff2`    | Manrope    | wght 200–800, latin-ext |
 
 Both families are released under the SIL Open Font License 1.1:
 
-- Playfair Display — https://github.com/clauseggers/Playfair-Display
-- Inter — https://github.com/rsms/inter
+- Newsreader — https://github.com/productiontype/Newsreader
+- Manrope — https://github.com/sharanda/manrope
 
 The subsets are the Google Fonts variable builds (`fonts.gstatic.com`); the
 `@font-face` rules and `unicode-range` values live in `client/src/index.css`.
