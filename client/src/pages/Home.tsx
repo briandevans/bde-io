@@ -171,7 +171,7 @@ export default function Home() {
           <div className="dispatch__grid">
             {SITE.dispatch.map((essay, index) => (
               <article className="note" key={essay.title}>
-                <a href={essay.href} target="_blank" rel="noreferrer">
+                <a href={essay.href} target="_blank" rel="noopener noreferrer">
                   <div className={`note__frame note__frame--${NOTE_VARIANTS[index]}`}>
                     <img src={essay.image} alt="" loading="lazy" />
                   </div>
@@ -202,12 +202,12 @@ export default function Home() {
             <div className="dossier__col">
               <p className="copy">{SITE.founder.bio[1]}</p>
               <p className="dossier__links">
-                <a href={SITE.social[0].href} target="_blank" rel="noreferrer">
+                <a href={SITE.social[0].href} target="_blank" rel="noopener noreferrer">
                   X / Twitter
                   <XIcon />
                 </a>
                 <span className="divider" aria-hidden="true" />
-                <a href={SITE.social[1].href} target="_blank" rel="noreferrer">
+                <a href={SITE.social[1].href} target="_blank" rel="noopener noreferrer">
                   LinkedIn
                   <LinkedInIcon />
                 </a>
