@@ -1,5 +1,8 @@
 export type FocusArea = {
   name: string;
+  /** One line, as set on the page. */
+  summary: string;
+  /** Long form, used for the crawlable fallback and metadata. */
   description: string;
 };
 
@@ -27,21 +30,29 @@ export const SITE = {
   focusAreas: [
     {
       name: "Blockchain",
+      summary:
+        "Navigating decentralized protocols and token economies for enduring value.",
       description:
         "We back founders building the decentralized infrastructure and token-based economies that will define the next iteration of the internet. We look for technical edge and the ability to drive real adoption.",
     },
     {
       name: "AI",
+      summary:
+        "Strategic application of large language models and generative intelligence.",
       description:
         "We invest aggressively in the AI space, backing founders who leverage artificial intelligence to create new technological paradigms. Beyond capital, we deploy our extensive network and fundraising strategies to ensure these foundational models scale without friction.",
     },
     {
       name: "Infrastructure",
+      summary:
+        "Building the foundational rails for next-generation systems.",
       description:
         "We partner with teams building the core technological layers and engineering innovations required to solve generational challenges and support global-scale applications.",
     },
     {
       name: "Consumer Platforms & Brands",
+      summary:
+        "Merging community, culture, and commerce for market dominance.",
       description:
         "We help founders turn attention into durable advantage. We back consumer platforms, brands, and the advertising technologies that scale them, bringing our global distribution expertise to the cap table.",
     },
@@ -49,16 +60,22 @@ export const SITE = {
   operatingModel: [
     {
       name: "Operator DNA",
+      summary:
+        "Battle-tested insights from building and scaling ventures.",
       description:
         "We are built through work, not optics. We spend time where important companies are actually shaped: product reviews, launch plans, distribution strategy, and moments where the next decision matters more than the next deck.",
     },
     {
       name: "Active Strategy",
+      summary:
+        "High-touch advisory for critical inflection points.",
       description:
         "We are most useful when conviction needs sharpening and leverage needs creating. We deploy our deep network and bespoke fundraising strategies to ensure founders have the capital and connections to dominate. Founders call when a launch has to matter, a round has to clear, a hire has to close, or a narrative has to cut through noise.",
     },
     {
       name: "Enduring Value",
+      summary:
+        "Long-term partnership for sustainable growth.",
       description:
         "We combine company building, institutional investing, and global-scale distribution into one cap-table partner, helping founders build what consensus misses.",
     },
@@ -101,7 +118,7 @@ export const SITE = {
     role: "Founder & Managing Partner · BDE Ventures",
     credentials: ["Inc. 500", "40 Under 40"],
     bio: [
-      "Brian D. Evans identifies the inflection points of major technological shifts and helps founders build the narratives that drive early, massive adoption. His core advantage is an obsessive drive to deconstruct how things work on a profound level. He masters the edge cases and applies a refined human taste that algorithms simply cannot replicate.",
+      "Brian D. Evans is a serial entrepreneur, investor, and advisor who identifies the inflection points of major technological shifts and helps founders build the narratives that drive early, massive adoption — mastering the edge cases, then applying a refined human taste that algorithms cannot replicate.",
       "As an unconventional generalist, he connects dots others miss, viewing emerging markets through the distinct lens of an operator who has built, scaled, and exited companies to construct hard-to-replicate moats. Rather than relying on traditional, siloed playbooks, Brian leverages his broad expertise to fix broken growth engines and open strategic bottlenecks.",
     ],
     portrait: "/images/brian-d-evans-portrait.png",
