@@ -48,7 +48,7 @@ export const SITE = {
     { label: "Active Thesis", href: "#thesis" },
     { label: "Philosophy", href: "#philosophy" },
     { label: "Founder", href: "#founder" },
-    { label: "Connect", href: "#connect" },
+    { label: "Contact", href: "#connect" },
   ],
   focusAreas: [
     {
