@@ -1,47 +1,39 @@
-/** Operator's Ledger: the coded composition of the approved BDE Ventures concept. */
+import { BdeMark } from "@/components/BdeMark";
+import { PixelTomorrow } from "@/components/PixelTomorrow";
 import { SITE } from "@/lib/site";
 
-const PRESS_LOGOS = [
-  { name: "Forbes", slug: "forbes", src: "/images/forbes.svg" },
-  { name: "Inc.", slug: "inc", src: "/images/inc.svg" },
-  { name: "Entrepreneur", slug: "entrepreneur", src: "/images/entrepreneur.svg" },
-  { name: "Rolling Stone", slug: "rollingstone", src: "/images/rollingstone.png", crop: true },
-];
+const publicationLogos = {
+  Forbes: "/images/forbes.svg",
+  "Inc.": "/images/inc.svg",
+  Entrepreneur: "/images/entrepreneur.svg",
+  "Rolling Stone": "/images/rollingstone.png",
+} satisfies Record<(typeof SITE.publications)[number], string>;
 
-const NOTE_VARIANTS = ["felt", "rails", "street"] as const;
+const philosophyLead =
+  "BDE Ventures is focused exclusively on early-stage partnerships.";
+const philosophyRemainder = SITE.philosophy.description.slice(
+  philosophyLead.length + 1
+);
+const [founderLead, founderBody] = SITE.founder.bio;
 
-function PressMark({ logo }: { logo: (typeof PRESS_LOGOS)[number] }) {
-  if (logo.crop) {
-    // Rolling Stone ships as a red mark on a white plate: crop the padding away
-    // and print it as ink so the row reads as one typographic line.
-    return (
-      <span className="press__crop press__logo--rollingstone">
-        <img src={logo.src} alt={logo.name} loading="lazy" />
-      </span>
-    );
-  }
+function PixelExternalArrow() {
   return (
-    <img
-      className={`press__logo press__logo--${logo.slug}`}
-      src={logo.src}
-      alt={logo.name}
-      loading="lazy"
-    />
-  );
-}
-
-function XIcon() {
-  return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M18.9 2.8h3.7l-8.1 9.3L24 21.2h-7.4l-5.8-7.5-6.6 7.5H.5l8.6-9.8L0 2.8h7.6l5.3 6.9 6-6.9Zm-1.3 16.2h2L6.5 4.8H4.3L17.6 19Z" />
-    </svg>
-  );
-}
-
-function LinkedInIcon() {
-  return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.6 8.65 23 10.9 23 14.1V21h-4v-6.1c0-1.45-.03-3.3-2.02-3.3-2.02 0-2.33 1.57-2.33 3.2V21h-4V9Z" />
+    <svg
+      aria-hidden="true"
+      className="dispatch__link-arrow"
+      focusable="false"
+      shapeRendering="crispEdges"
+      viewBox="0 0 8 8"
+    >
+      <g fill="currentColor">
+        <rect height="1" width="1" x="1" y="6" />
+        <rect height="1" width="1" x="2" y="5" />
+        <rect height="1" width="1" x="3" y="4" />
+        <rect height="1" width="1" x="4" y="3" />
+        <rect height="1" width="1" x="5" y="2" />
+        <rect height="1" width="3" x="5" y="1" />
+        <rect height="3" width="1" x="7" y="1" />
+      </g>
     </svg>
   );
 }
@@ -53,212 +45,305 @@ export default function Home() {
         Skip to content
       </a>
 
-      <span className="trim trim--v trim--v-tl" aria-hidden="true" />
-      <span className="trim trim--v trim--v-tr" aria-hidden="true" />
-      <span className="trim trim--v trim--v-bl" aria-hidden="true" />
-      <span className="trim trim--v trim--v-br" aria-hidden="true" />
-      <span className="trim trim--h trim--h-tl" aria-hidden="true" />
-      <span className="trim trim--h trim--h-tr" aria-hidden="true" />
-      <span className="trim trim--h trim--h-bl" aria-hidden="true" />
-      <span className="trim trim--h trim--h-br" aria-hidden="true" />
-      <span className="bracket bracket--tl" aria-hidden="true" />
-      <span className="bracket bracket--tr" aria-hidden="true" />
-      <span className="bracket bracket--bl" aria-hidden="true" />
-      <span className="bracket bracket--br" aria-hidden="true" />
-
-      <header className="shell">
-        <div className="masthead">
+      <header className="shell masthead">
         <a className="wordmark" href="#main-content" aria-label="BDE Ventures">
-          BDE
+          <BdeMark className="wordmark__mark" label="BDE" />
+          <span className="wordmark__descriptor">Ventures</span>
         </a>
         <nav className="masthead__nav" aria-label="Primary">
-          {SITE.navigation.map((item) => (
-            <a key={item.href} href={item.href}>
+          {SITE.navigation.map(item => (
+            <a
+              className={
+                item.href === "#connect" ? "masthead__connect" : undefined
+              }
+              key={item.href}
+              href={item.href}
+            >
               {item.label}
             </a>
           ))}
         </nav>
-        </div>
       </header>
 
-      <main id="main-content">
-        <section className="shell hero" aria-labelledby="hero-title">
-          <p className="label label--red hero__eyebrow">BDE Ventures</p>
-          <h1 className="display hero__title" id="hero-title">
-            Advisory for the
-            <br />
-            architects of tomorrow.
-          </h1>
-          <p className="hero__lede">
-            We provide cross-disciplinary, operator-led advisory for founders building at the
-            intersection of AI, blockchain, and consumer brands.
-          </p>
-
-          <aside className="index-card" aria-label="Brian D. Evans">
-            <div className="index-card__head">
-              <img
-                className="index-card__portrait"
-                src={SITE.founder.portrait}
-                width="128"
-                height="128"
-                alt="Brian D. Evans"
-              />
-              <div>
-                <p className="index-card__name">Brian D. Evans</p>
-                <p className="index-card__role">Founder &amp; Managing Partner</p>
-                <p className="index-card__facts">
-                  1M+ followers across platforms
-                  <br />
-                  Inc. 500 · 40 Under 40
-                </p>
+      <main id="main-content" tabIndex={-1}>
+        <section className="cover" aria-labelledby="hero-title">
+          <div className="shell cover__inner">
+            <p className="cover__folio">BDE Ventures</p>
+            <h1 className="cover__title" id="hero-title">
+              <span className="sr-only">{SITE.hero.title}</span>
+              <span
+                aria-hidden="true"
+                className="cover__title-visual cover__title-visual--wide"
+              >
+                <span>Advisory for the architects</span>
+                <span className="cover__tomorrow-line">
+                  <span className="cover__of">of</span>
+                  <PixelTomorrow className="cover__tomorrow-signature" />
+                </span>
+              </span>
+              <span
+                aria-hidden="true"
+                className="cover__title-visual cover__title-visual--narrow"
+              >
+                <span>Advisory for</span>
+                <span>the architects</span>
+                <span className="cover__tomorrow-line">
+                  <span className="cover__of">of</span>
+                  <PixelTomorrow className="cover__tomorrow-signature" />
+                </span>
+              </span>
+            </h1>
+            <div className="cover__secondary">
+              <p className="cover__intro">{SITE.hero.lede}</p>
+              <div className="cover__credentials">
+                <div
+                  className="cover__proof-rail"
+                  role="group"
+                  aria-label="Press coverage"
+                >
+                  <span className="cover__proof-label">As seen in</span>
+                  <div className="cover__proof-list">
+                    {SITE.publications.map(publication => (
+                      <span
+                        className={`cover__publication cover__publication--${publication
+                          .toLowerCase()
+                          .replace(/[^a-z]+/g, "-")
+                          .replace(/^-|-$/g, "")}`}
+                        key={publication}
+                      >
+                        <img
+                          src={publicationLogos[publication]}
+                          alt={publication}
+                        />
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <nav
+                  className="cover__social"
+                  aria-label="Brian D. Evans on social"
+                >
+                  {SITE.social.map(social => (
+                    <a
+                      href={social.href}
+                      key={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {social.label}
+                    </a>
+                  ))}
+                </nav>
               </div>
             </div>
-            <div className="index-card__foot">
-              <nav className="index-card__social" aria-label="Brian D. Evans on social">
-                <a
-                  href={SITE.social[0].href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Brian D. Evans on X"
-                >
-                  <XIcon />
-                </a>
-                <a
-                  href={SITE.social[1].href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Brian D. Evans on LinkedIn"
-                >
-                  <LinkedInIcon />
-                </a>
-              </nav>
-            </div>
-            <span className="seal" aria-hidden="true">
-              BDE
-            </span>
-          </aside>
+          </div>
         </section>
 
-        <section className="shell" aria-label="Press coverage">
-          <div className="press">
-            <p className="label press__label">As seen in</p>
-            <div className="press__logos">
-              {PRESS_LOGOS.map((logo) => (
-                <span className={`press__item press__item--${logo.slug}`} key={logo.name}>
-                  <PressMark logo={logo} />
-                </span>
+        <section className="thesis-shell">
+          <div className="shell thesis-shell__inner">
+            <section
+              className="thesis"
+              id="thesis"
+              aria-labelledby="thesis-title"
+            >
+              <div className="thesis__layout">
+                <div className="thesis__intro">
+                  <p className="thesis__label">01 / Active Thesis</p>
+                  <h2 className="thesis__title" id="thesis-title">
+                    <span className="thesis__title-phrase">
+                      Judgment at the
+                    </span>{" "}
+                    <span>inflection point.</span>
+                  </h2>
+                </div>
+                <div className="thesis__focus">
+                  <h3 className="thesis__focus-label" id="focus-title">
+                    Areas of focus
+                  </h3>
+                  <ul
+                    className="thesis__focus-list"
+                    aria-labelledby="focus-title"
+                  >
+                    {SITE.focusAreas.map(area => (
+                      <li className="thesis__focus-item" key={area.name}>
+                        <h4 className="thesis__focus-name">{area.name}</h4>
+                        <p className="thesis__focus-summary">{area.summary}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section className="field" aria-label="Practice and dispatch">
+          <div className="shell field__inner">
+            <section
+              className="practice"
+              id="philosophy"
+              aria-labelledby="method-title"
+            >
+              <div className="section-header">
+                <p className="practice__eyebrow">How we work</p>
+                <h2 className="practice__title" id="method-title">
+                  Philosophy
+                </h2>
+              </div>
+              <div className="practice__reading">
+                <p className="practice__lead-sentence">
+                  BDE Ventures is focused exclusively on{" "}
+                  <span className="practice__compound">early-stage</span>{" "}
+                  partnerships.{" "}
+                </p>
+                <p className="practice__supporting-copy">
+                  {philosophyRemainder}
+                </p>
+              </div>
+              <div className="practice__model">
+                {SITE.operatingModel.map(item => (
+                  <article className="practice__model-item" key={item.name}>
+                    <h3>{item.name}</h3>
+                    <p>{item.summary}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section
+          className="dispatch"
+          id="dispatch"
+          aria-labelledby="dispatch-title"
+        >
+          <div className="shell dispatch__inner">
+            <div className="section-header">
+              <p className="dispatch__label">BDE Dispatch</p>
+              <h2 className="dispatch__title" id="dispatch-title">
+                Notes from the edge.
+              </h2>
+            </div>
+            <div className="dispatch__list">
+              {SITE.dispatch.map((essay, index) => (
+                <article className="dispatch__item" key={essay.title}>
+                  <a
+                    className="dispatch__item-link"
+                    href={essay.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <p className="dispatch__kicker">
+                      Field note / 0{index + 1}
+                    </p>
+                    <h3>{essay.title}</h3>
+                    <p className="dispatch__row-meta">{essay.descriptor}</p>
+                    <PixelExternalArrow />
+                  </a>
+                </article>
               ))}
             </div>
+            <p className="dispatch__stamp">Clarity before consensus.</p>
           </div>
         </section>
 
-        <section className="shell thesis" id="thesis" aria-labelledby="thesis-title">
-          <p className="label">01 / Active Thesis</p>
-          <h2 className="display thesis__title" id="thesis-title">
-            Judgment at the inflection point.
-          </h2>
-          <div className="thesis__grid">
-            {SITE.focusAreas.map((area, index) => (
-              <article className="pillar" key={area.name}>
-                <p className="pillar__index">0{index + 1}</p>
-                <h3 className="pillar__name">{area.name}</h3>
-                <p className="pillar__copy">{area.summary}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="shell method" id="philosophy" aria-label="How we work">
-          <p className="label">How we work</p>
-          <div className="method__grid">
-            {SITE.operatingModel.map((item) => (
-              <article className="method__item" key={item.name}>
-                <h3 className="method__name">{item.name}</h3>
-                <p className="method__copy">{item.summary}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="shell dispatch" id="dispatch" aria-labelledby="dispatch-title">
-          <p className="label label--dark">BDE Dispatch</p>
-          <h2 className="display dispatch__title" id="dispatch-title">
-            Notes from the edge.
-          </h2>
-          <div className="dispatch__grid">
-            {SITE.dispatch.map((essay, index) => (
-              <article className="note" key={essay.title}>
-                <a href={essay.href} target="_blank" rel="noopener noreferrer">
-                  <div className={`note__frame note__frame--${NOTE_VARIANTS[index]}`}>
-                    <img src={essay.image} alt="" loading="lazy" />
+        <section
+          className="founder"
+          id="founder"
+          aria-labelledby="founder-title"
+        >
+          <div className="shell founder__layout">
+            <div className="founder__grid">
+              <div className="founder__content">
+                <div className="founder__identity">
+                  <p className="founder__kicker">Founder dossier</p>
+                  <h2 className="founder__name" id="founder-title">
+                    {SITE.founder.name}
+                  </h2>
+                  <div className="founder__metadata">
+                    <p className="founder__role">{SITE.founder.role}</p>
+                    <div className="founder__facts">
+                      <p className="founder__followers">
+                        1M+ followers across platforms
+                      </p>
+                      <p className="founder__credentials">
+                        {SITE.founder.credentials.join(" · ")}
+                      </p>
+                    </div>
                   </div>
-                  <p className="note__kicker">Field note / 0{index + 1}</p>
-                  <h3 className="note__title">{essay.title}</h3>
-                </a>
-              </article>
-            ))}
+                </div>
+                <div className="founder__bio">
+                  <p className="founder__bio-lead">{founderLead}</p>
+                  <p className="founder__bio-body">{founderBody}</p>
+                </div>
+              </div>
+              <div className="founder__portrait-wrap">
+                <img
+                  className="founder__portrait"
+                  src="/images/brian-d-evans-studio-v1.png"
+                  width="1122"
+                  height="1402"
+                  alt="Brian D. Evans, Founder and Managing Partner of BDE Ventures"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
-          <p className="dispatch__stamp">Clarity before consensus.</p>
         </section>
 
-        <section className="shell dossier" id="founder" aria-label="Founder dossier">
-          <p className="label">Founder dossier</p>
-
-          <div className="dossier__grid">
-            <img
-              className="dossier__portrait"
-              src={SITE.founder.portrait}
-              width="202"
-              height="210"
-              alt="Brian D. Evans, Founder and Managing Partner of BDE Ventures"
-              loading="lazy"
-            />
-            <div className="dossier__col">
-              <p className="copy">{SITE.founder.bio[0]}</p>
-            </div>
-            <div className="dossier__col">
-              <p className="copy">{SITE.founder.bio[1]}</p>
-              <p className="dossier__links">
-                <a href={SITE.social[0].href} target="_blank" rel="noopener noreferrer">
-                  X / Twitter
-                  <XIcon />
-                </a>
-                <span className="divider" aria-hidden="true" />
-                <a href={SITE.social[1].href} target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-                  <LinkedInIcon />
-                </a>
+        <section
+          className="connect"
+          id="connect"
+          aria-labelledby="connect-title"
+        >
+          <div className="shell connect__inner">
+            <h2 className="connect__title" id="connect-title">
+              We do not back tourists.
+            </h2>
+            <div className="connect__details">
+              <p className="connect__description">
+                We partner exclusively with operators building the next
+                iteration of the internet. If you are solving a generational
+                challenge in our areas of focus, we invite you to reach out.
               </p>
+              <a className="connect__mail" href="mailto:hello@bde.io">
+                hello@bde.io
+              </a>
             </div>
           </div>
-
-          <div className="dossier__foot">
-            <div className="accolades">
-              <span className="accolade-inc">
-                <img src="/images/inc.svg" alt="Inc." loading="lazy" />
-                <span>500</span>
-              </span>
-              <span className="accolade-40">40 Under 40</span>
-            </div>
-            <div className="dossier__press">
-              {PRESS_LOGOS.map((logo) => (
-                <PressMark key={logo.name} logo={logo} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="shell connect" id="connect" aria-labelledby="connect-title">
-          <h2 className="display connect__line" id="connect-title">
-            We do not back tourists.
-          </h2>
-          <a className="connect__mail" href="mailto:hello@bde.io">
-            hello@bde.io
-          </a>
         </section>
       </main>
 
-      <footer className="shell colophon">Clarity before consensus.</footer>
+      <footer className="colophon">
+        <div className="shell colophon__inner">
+          <div className="colophon__identity">
+            <BdeMark className="colophon__wordmark" label="BDE" />
+            <span className="colophon__brand">Ventures</span>
+          </div>
+          <div className="colophon__utility">
+            <p className="colophon__statement">Clarity before consensus.</p>
+            <nav
+              className="colophon__social"
+              aria-label="BDE Ventures social links"
+            >
+              <a
+                href={SITE.social[0].href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                X / Twitter
+              </a>
+              <a
+                href={SITE.social[1].href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+            </nav>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

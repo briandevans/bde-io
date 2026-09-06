@@ -1,5 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="3" fill="#f5f0e8"/>
-  <text x="15" y="23" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-weight="700" font-size="21" letter-spacing="-1.5" fill="#151310">B</text>
-  <rect x="24" y="20.5" width="3" height="3" fill="#8e3d32"/>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 32 32"
+  role="img"
+  aria-labelledby="title"
+>
+  <title id="title">BDE</title>
+  <rect width="32" height="32" fill="#f4f1e8" />
+  <path
+    fill="#1b1a17"
+    d="M8 6h4v4H8zm4 0h4v4h-4zm4 0h4v4h-4zM8 10h4v4H8zm12 0h4v4h-4zM8 14h4v4H8zm4 0h4v4h-4zm4 0h4v4h-4zM8 18h4v4H8zm12 0h4v4h-4zM8 22h4v4H8zm4 0h4v4h-4zm4 0h4v4h-4z"
+  />
 </svg>

@@ -18,6 +18,29 @@ const social = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/briandevansla/" },
 ] as const;
 
+const dispatch = [
+  {
+    title: "Chips Across the Felt",
+    descriptor: "The AI Credit Reset Wars of 2026",
+    href: "https://briandevans.substack.com/p/chips-across-the-felt",
+    image: "/images/dispatch-chips-across-the-felt.jpg",
+  },
+  {
+    title: "AI Agents Need Crypto Rails",
+    descriptor:
+      "The infrastructure gap between AI and crypto is bigger than anyone wants to admit.",
+    href: "https://briandevans.substack.com/p/ai-agents-need-crypto-rails",
+    image: "/images/dispatch-ai-agents-need-crypto-rails.jpg",
+  },
+  {
+    title: "The Generalist Era Is Here",
+    descriptor:
+      "Look, I’m going to tell you something that goes against basically everything you’ve heard about career advice.",
+    href: "https://briandevans.substack.com/p/the-generalist-era-is-here",
+    image: "/images/dispatch-the-generalist-era-is-here.jpg",
+  },
+] as const satisfies readonly DispatchEssay[];
+
 export const SITE = {
   siteUrl: "https://bde.io/",
   social,
@@ -44,15 +67,13 @@ export const SITE = {
     },
     {
       name: "Infrastructure",
-      summary:
-        "Building the foundational rails for next-generation systems.",
+      summary: "Building the foundational rails for next-generation systems.",
       description:
         "We partner with teams building the core technological layers and engineering innovations required to solve generational challenges and support global-scale applications.",
     },
     {
       name: "Consumer Platforms & Brands",
-      summary:
-        "Merging community, culture, and commerce for market dominance.",
+      summary: "Merging community, culture, and commerce for market dominance.",
       description:
         "We help founders turn attention into durable advantage. We back consumer platforms, brands, and the advertising technologies that scale them, bringing our global distribution expertise to the cap table.",
     },
@@ -60,51 +81,28 @@ export const SITE = {
   operatingModel: [
     {
       name: "Operator DNA",
-      summary:
-        "Battle-tested insights from building and scaling ventures.",
+      summary: "Battle-tested insights from building and scaling ventures.",
       description:
         "We are built through work, not optics. We spend time where important companies are actually shaped: product reviews, launch plans, distribution strategy, and moments where the next decision matters more than the next deck.",
     },
     {
       name: "Active Strategy",
-      summary:
-        "High-touch advisory for critical inflection points.",
+      summary: "High-touch advisory for critical inflection points.",
       description:
         "We are most useful when conviction needs sharpening and leverage needs creating. We deploy our deep network and bespoke fundraising strategies to ensure founders have the capital and connections to dominate. Founders call when a launch has to matter, a round has to clear, a hire has to close, or a narrative has to cut through noise.",
     },
     {
       name: "Enduring Value",
-      summary:
-        "Long-term partnership for sustainable growth.",
+      summary: "Long-term partnership for sustainable growth.",
       description:
         "We combine company building, institutional investing, and global-scale distribution into one cap-table partner, helping founders build what consensus misses.",
     },
   ],
-  dispatch: [
-    {
-      title: "Chips Across the Felt",
-      descriptor: "The AI Credit Reset Wars of 2026",
-      href: "https://briandevans.substack.com/p/chips-across-the-felt",
-      image: "/images/dispatch-chips-across-the-felt.jpg",
-    },
-    {
-      title: "AI Agents Need Crypto Rails",
-      descriptor:
-        "The infrastructure gap between AI and crypto is bigger than anyone wants to admit.",
-      href: "https://briandevans.substack.com/p/ai-agents-need-crypto-rails",
-      image: "/images/dispatch-ai-agents-need-crypto-rails.jpg",
-    },
-    {
-      title: "The Generalist Era Is Here",
-      descriptor:
-        "Look, I’m going to tell you something that goes against basically everything you’ve heard about career advice.",
-      href: "https://briandevans.substack.com/p/the-generalist-era-is-here",
-      image: "/images/dispatch-the-generalist-era-is-here.jpg",
-    },
-  ] satisfies DispatchEssay[],
+  dispatch,
   hero: {
     eyebrow: "BDE Ventures",
     title: "Advisory for the architects of tomorrow.",
+    lede: "We provide cross-disciplinary, operator-led advisory for founders building at the intersection of AI, blockchain, and consumer brands.",
     description:
       "We provide cross-disciplinary, operator-led advisory for founders building at the intersection of AI, blockchain, and consumer brands. We help you identify hard-to-replicate moats, leveraging deep, edge-case knowledge and human taste to turn complex technological advantages into defensible market dominance.",
   },
