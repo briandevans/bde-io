@@ -116,8 +116,8 @@ export const SITE = {
     role: "Founder & Managing Partner · BDE Ventures",
     credentials: ["Inc. 500", "40 Under 40"],
     bio: [
-      "Brian D. Evans is a serial entrepreneur, investor, and advisor who identifies the inflection points of major technological shifts and helps founders build the narratives that drive early, massive adoption — mastering the edge cases, then applying a refined human taste that algorithms cannot replicate.",
-      "As an unconventional generalist, he connects dots others miss, viewing emerging markets through the distinct lens of an operator who has built, scaled, and exited companies to construct hard-to-replicate moats. Rather than relying on traditional, siloed playbooks, Brian leverages his broad expertise to fix broken growth engines and open strategic bottlenecks.",
+      "Brian D. Evans is a serial entrepreneur, investor, and advisor with a track record of recognizing emerging markets early: e-commerce in 2004, influencer marketing in 2011, crypto in 2014, and AI in 2018. Across these shifts, he has connected technology, culture, and distribution to identify opportunities and build businesses around them.",
+      "Having built, scaled, and exited companies across e-commerce, media, and technology, Brian brings an operator’s perspective to BDE Ventures. He connects founders with relevant investors, operators, and partners, pairing his network with practical work on positioning, partnerships, fundraising, and growth. His focus is helping founders turn early conviction into real adoption and durable companies.",
     ],
     portrait: "/images/brian-d-evans-portrait.png",
   },
