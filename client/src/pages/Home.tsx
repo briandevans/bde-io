@@ -3,8 +3,8 @@ import {
   ContactDialog,
   ContactDialogTrigger,
 } from "@/components/ContactDialog";
-import { PixelTomorrow } from "@/components/PixelTomorrow";
 import { SITE } from "@/lib/site";
+import "./evergreen.css";
 
 const publicationLogos = {
   Forbes: "/images/forbes.svg",
@@ -18,6 +18,9 @@ const philosophyLead =
 const philosophyRemainder = SITE.philosophy.description.slice(
   philosophyLead.length + 1
 );
+const operatingModelSummaries = SITE.operatingModel
+  .map(item => item.summary)
+  .join(" ");
 const [founderLead, founderBody] = SITE.founder.bio;
 
 function PixelExternalArrow() {
@@ -45,7 +48,7 @@ function PixelExternalArrow() {
 export default function Home() {
   return (
     <ContactDialog>
-      <div className="page">
+      <div className="page page--evergreen">
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
@@ -80,33 +83,33 @@ export default function Home() {
         <main id="main-content" tabIndex={-1}>
           <section className="cover" aria-labelledby="hero-title">
             <div className="shell cover__inner">
-              <p className="cover__folio">BDE Ventures</p>
-              <h1 className="cover__title" id="hero-title">
-                <span className="sr-only">{SITE.hero.title}</span>
-                <span
-                  aria-hidden="true"
-                  className="cover__title-visual cover__title-visual--wide"
-                >
-                  <span>Advisory for the architects</span>
-                  <span className="cover__tomorrow-line">
-                    <span className="cover__of">of</span>
-                    <PixelTomorrow className="cover__tomorrow-signature" />
-                  </span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="cover__title-visual cover__title-visual--narrow"
-                >
-                  <span>Advisory for</span>
-                  <span>the architects</span>
-                  <span className="cover__tomorrow-line">
-                    <span className="cover__of">of</span>
-                    <PixelTomorrow className="cover__tomorrow-signature" />
-                  </span>
-                </span>
-              </h1>
-              <div className="cover__secondary">
-                <p className="cover__intro">{SITE.hero.lede}</p>
+              <div className="cover__layout">
+                <div className="cover__copy">
+                  <h1 className="cover__title" id="hero-title">
+                    <span className="sr-only">{SITE.hero.title}</span>
+                    <span
+                      aria-hidden="true"
+                      className="cover__title-visual cover__title-visual--evergreen"
+                    >
+                      <span>Advisory for the</span>
+                      <span>architects of</span>
+                      <span>tomorrow.</span>
+                    </span>
+                  </h1>
+                  <p className="cover__intro">{SITE.hero.lede}</p>
+                  <ContactDialogTrigger className="evergreen__contact">
+                    <span>Contact</span>
+                    <PixelExternalArrow />
+                  </ContactDialogTrigger>
+                </div>
+                <div className="evergreen__portrait">
+                  <img
+                    src="/images/brian-d-evans-studio-v1.png"
+                    width="1122"
+                    height="1402"
+                    alt="Brian D. Evans, Founder and Managing Partner of BDE Ventures"
+                  />
+                </div>
                 <div className="cover__credentials">
                   <div
                     className="cover__proof-rail"
@@ -160,7 +163,6 @@ export default function Home() {
               >
                 <div className="thesis__layout">
                   <div className="thesis__intro">
-                    <p className="thesis__label">01 / Active Thesis</p>
                     <h2 className="thesis__title" id="thesis-title">
                       <span className="thesis__title-phrase">
                         Judgment at the
@@ -169,7 +171,7 @@ export default function Home() {
                     </h2>
                   </div>
                   <div className="thesis__focus">
-                    <h3 className="thesis__focus-label" id="focus-title">
+                    <h3 className="sr-only" id="focus-title">
                       Areas of focus
                     </h3>
                     <ul
@@ -199,8 +201,7 @@ export default function Home() {
                 aria-labelledby="method-title"
               >
                 <div className="section-header">
-                  <p className="practice__eyebrow">How we work</p>
-                  <h2 className="practice__title" id="method-title">
+                  <h2 className="practice__title sr-only" id="method-title">
                     Philosophy
                   </h2>
                 </div>
@@ -214,14 +215,9 @@ export default function Home() {
                     {philosophyRemainder}
                   </p>
                 </div>
-                <div className="practice__model">
-                  {SITE.operatingModel.map(item => (
-                    <article className="practice__model-item" key={item.name}>
-                      <h3>{item.name}</h3>
-                      <p>{item.summary}</p>
-                    </article>
-                  ))}
-                </div>
+                <p className="practice__principles">
+                  {operatingModelSummaries}
+                </p>
               </section>
             </div>
           </section>
@@ -233,23 +229,26 @@ export default function Home() {
           >
             <div className="shell dispatch__inner">
               <div className="section-header">
-                <p className="dispatch__label">BDE Dispatch</p>
                 <h2 className="dispatch__title" id="dispatch-title">
                   Notes from the edge.
                 </h2>
               </div>
               <div className="dispatch__list">
                 {SITE.dispatch.map((essay, index) => (
-                  <article className="dispatch__item" key={essay.title}>
+                  <article
+                    className={
+                      index === 0
+                        ? "dispatch__item dispatch__item--featured"
+                        : "dispatch__item"
+                    }
+                    key={essay.title}
+                  >
                     <a
                       className="dispatch__item-link"
                       href={essay.href}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <p className="dispatch__kicker">
-                        Field note / 0{index + 1}
-                      </p>
                       <h3>{essay.title}</h3>
                       <p className="dispatch__row-meta">{essay.descriptor}</p>
                       <PixelExternalArrow />
@@ -257,7 +256,6 @@ export default function Home() {
                   </article>
                 ))}
               </div>
-              <p className="dispatch__stamp">Clarity before consensus.</p>
             </div>
           </section>
 
@@ -314,16 +312,15 @@ export default function Home() {
               <h2 className="connect__title" id="connect-title">
                 We do not back tourists.
               </h2>
-              <div className="connect__details">
-                <p className="connect__description">
-                  We partner exclusively with operators building the next
-                  iteration of the internet. If you are solving a generational
-                  challenge in our areas of focus, we invite you to reach out.
-                </p>
-                <ContactDialogTrigger className="connect__mail">
-                  Contact
-                </ContactDialogTrigger>
-              </div>
+              <p className="connect__description">
+                We partner exclusively with operators building the next
+                iteration of the internet. If you are solving a generational
+                challenge in our areas of focus, we invite you to reach out.
+              </p>
+              <ContactDialogTrigger className="connect__mail">
+                <span>Contact</span>
+                <PixelExternalArrow />
+              </ContactDialogTrigger>
             </div>
           </section>
         </main>
